@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 /*
@@ -71,7 +72,7 @@ public:
 int main()
 {
 	DirectedGraph dg("graph.gg");
-	dg.OutputGraph();
+	/*dg.OutputGraph();
 	system("pause");
 
 	DirectedGraph dg2 = dg * dg;
@@ -101,8 +102,83 @@ int main()
 	system("pause");
 
 	cout << dg.IsConnected(0, 2) << endl;
-	cout << dg.IsConnected(2, 0) << endl;
+	cout << dg.IsConnected(2, 0) << endl;*/
 	system("pause");
 	return 0;
 }
 
+DirectedGraph::DirectedGraph()
+{ 
+	vector<vector<int>>(0).swap(m_AdjMat);
+	vector<vector<int>>(0).swap(m_ReachabilityMat);
+}
+
+DirectedGraph::~DirectedGraph()
+{
+	vector<vector<int>>(0).swap(m_AdjMat);
+	vector<vector<int>>(0).swap(m_ReachabilityMat);
+}
+
+void DirectedGraph::ClearGraph()
+{
+	vector<vector<int>>(0).swap(m_AdjMat);
+	vector<vector<int>>(0).swap(m_ReachabilityMat);
+}
+
+DirectedGraph::DirectedGraph(string filepath)
+{
+	ifstream fin;
+	fin.open(filepath);
+	string s;
+	if (!fin.is_open())
+	{
+		cout << "无法打开文件！" << endl << "错误原因：文件名或文件路径错误!";
+		exit(1);
+	}
+	while (getline(fin,s))
+	{
+		cout << s << endl;
+	}
+}
+
+DirectedGraph::DirectedGraph(const DirectedGraph& graph)
+{
+	ifstream fin;
+}
+
+DirectedGraph& DirectedGraph::operator=(const DirectedGraph& graph)
+{
+	exit(0);
+}
+
+void DirectedGraph::OutputGraph()
+{
+}
+
+DirectedGraph DirectedGraph::operator*(const DirectedGraph& graph)
+{
+	return DirectedGraph();
+}
+
+DirectedGraph DirectedGraph::Pow(int power)
+{
+	return DirectedGraph();
+}
+
+DirectedGraph DirectedGraph::MatOr(DirectedGraph graph)
+{
+	return DirectedGraph();
+}
+
+void DirectedGraph::CalcReachabilityMat()
+{
+}
+
+void DirectedGraph::OutputReachabilityMat()
+{
+}
+
+bool DirectedGraph::IsConnected(int src, int dst)
+{
+	return false;
+}
