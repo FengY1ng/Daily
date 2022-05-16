@@ -71,8 +71,8 @@ public:
 
 int main()
 {
-	DirectedGraph dg("graph.gg");
-	/*dg.OutputGraph();
+	DirectedGraph dg("../graph.gg");
+	dg.OutputGraph();
 	system("pause");
 
 	DirectedGraph dg2 = dg * dg;
@@ -102,27 +102,27 @@ int main()
 	system("pause");
 
 	cout << dg.IsConnected(0, 2) << endl;
-	cout << dg.IsConnected(2, 0) << endl;*/
+	cout << dg.IsConnected(2, 0) << endl;
 	system("pause");
 	return 0;
 }
 
 DirectedGraph::DirectedGraph()
 { 
-	vector<vector<int>>(0).swap(m_AdjMat);
-	vector<vector<int>>(0).swap(m_ReachabilityMat);
+	vector<vector<int>>(0).swap(this->m_AdjMat);
+	vector<vector<int>>(0).swap(this->m_ReachabilityMat);
 }
 
 DirectedGraph::~DirectedGraph()
 {
-	vector<vector<int>>(0).swap(m_AdjMat);
-	vector<vector<int>>(0).swap(m_ReachabilityMat);
+	vector<vector<int>>(0).swap(this->m_AdjMat);
+	vector<vector<int>>(0).swap(this->m_ReachabilityMat);
 }
 
 void DirectedGraph::ClearGraph()
 {
-	vector<vector<int>>(0).swap(m_AdjMat);
-	vector<vector<int>>(0).swap(m_ReachabilityMat);
+	vector<vector<int>>(0).swap(this->m_AdjMat);
+	vector<vector<int>>(0).swap(this->m_ReachabilityMat);
 }
 
 DirectedGraph::DirectedGraph(string filepath)
@@ -135,29 +135,46 @@ DirectedGraph::DirectedGraph(string filepath)
 		cout << "无法打开文件！" << endl << "错误原因：文件名或文件路径错误!";
 		exit(1);
 	}
-	while (getline(fin,s))
+	getline(fin, s);
+	int row = s.at(0) - '0';
+	vector<vector<int>>(row, vector<int>(row, 0)).swap(this->m_AdjMat);
+	getline(fin, s);
+	int line = s.at(0) - '0';
+	for (int i = 0; i < line; i++)
 	{
-		cout << s << endl;
+		getline(fin, s);
+		this->m_AdjMat[s.at(0)-'0'][s.at(2)-'0'] = 1;
 	}
 }
 
 DirectedGraph::DirectedGraph(const DirectedGraph& graph)
 {
-	ifstream fin;
+	this->m_AdjMat = graph.m_AdjMat;
+	this->m_ReachabilityMat = graph.m_ReachabilityMat;
 }
 
 DirectedGraph& DirectedGraph::operator=(const DirectedGraph& graph)
 {
-	exit(0);
+	this->m_AdjMat = graph.m_AdjMat;
+	this->m_ReachabilityMat = graph.m_ReachabilityMat;
+	return *this;
 }
 
 void DirectedGraph::OutputGraph()
 {
+	cout << "当前图的邻接矩阵为:" << endl;
+	for (int i = 0; i < this->m_AdjMat.size(); i++)
+	{
+		for (int j = 0; j < this->m_AdjMat.size(); j++)
+			cout << this->m_AdjMat[i][j] << "\t";
+		cout << endl;
+	}
 }
 
 DirectedGraph DirectedGraph::operator*(const DirectedGraph& graph)
 {
-	return DirectedGraph();
+	DirectedGraph multiplication;
+
 }
 
 DirectedGraph DirectedGraph::Pow(int power)
