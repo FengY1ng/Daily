@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Daily.cpp">
+    <ClCompile Include="Daily00.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Daily1.cpp">
+    <ClCompile Include="Daily01.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleLinkList.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,6 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basis.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleLinkList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

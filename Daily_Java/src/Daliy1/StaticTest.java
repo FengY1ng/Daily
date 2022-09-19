@@ -28,3 +28,7 @@ class Employee1{
 		return id;
 	}
 }
+
+class Employee2{
+	
+}

@@ -10,5 +10,6 @@
 
 //C
 #include <conio.h>
+#include <Windows.h>
 
 using namespace std;

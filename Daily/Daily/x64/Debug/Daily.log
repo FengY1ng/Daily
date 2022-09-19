@@ -1,5 +1,3 @@
-﻿  Daily.cpp
-  Daily1.cpp
-  正在生成代码...
-  LINK : 没有找到 C:\Users\ASUS\Documents\GitHub\Daily\Daily\x64\Debug\Daily.exe 或上一个增量链接没有生成它；正在执行完全链接
+﻿  Daily01.cpp
+C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\SimpleLinkList.h(153): warning C4715: “SimpleLinkList<int>::Delete”: 不是所有的控件路径都返回值
   Daily.vcxproj -> C:\Users\ASUS\Documents\GitHub\Daily\Daily\x64\Debug\Daily.exe
