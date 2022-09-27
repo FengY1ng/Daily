@@ -17,5 +17,6 @@ public class experiment_1_1 {
 		System.out.println("输入的分母为0,请重新输入!");
 		}
 		System.out.println("计算结果的商为:"+num1/num2+"余数为:"+num1%num2);
+		cin.close();
 	}
 }

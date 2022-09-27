@@ -1,33 +1,22 @@
 package Daliy1;
 
-import java.util.Scanner;
-
 public class experiment_1_2 {
     static int End=100;
 
-    
+    public static int Accumulate(int n){
+        int count=0;
+        if(n==1){
+            return 1;
+        }
+        if(n==0){
+            return 0;
+        }
+        count=Accumulate(n-1)+n;
+        return count;
+    }
 
     public static void main(String[] args){
-        public class Accumulate{
-            private int count=0;
-            public int count(int num){
-                if(num==0){
-                    return 0;
-                }
-                if(num==1){
-                    return 1;
-                }
-                return count(num-1)+count(num-2);
-            }
-            public Accumulate(int num){
-                this.count=count(num);
-            }
-            public void printCount(){
-                System.out.println("递归运算的结果为:"+count);
-            }
-        }
         int sumFor=0,sumWhile=0;
-        Accumulate sumAccumulate=new Accumulate(End);
 
         //while
         int median=End;
@@ -42,6 +31,6 @@ public class experiment_1_2 {
         }
         System.out.println("for循环的运算结果为:"+sumFor);
         //递归
-        sumAccumulate.printCount();
+        System.out.println("递归的运算结果为:"+Accumulate(End));
     }
 }

@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basis.h" />
+    <ClInclude Include="LinkStack.h" />
     <ClInclude Include="SimpleLinkList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
