@@ -1,5 +1,8 @@
 package Daliy1;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
+
 public class experiment_1_2 {
     static int End=100;
 
@@ -32,5 +35,8 @@ public class experiment_1_2 {
         System.out.println("for循环的运算结果为:"+sumFor);
         //递归
         System.out.println("递归的运算结果为:"+Accumulate(End));
+        System.out.println("软件工程21-8_2104060804_冯雪岩");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(df.format(new Date()));
     }
 }

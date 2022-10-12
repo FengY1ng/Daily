@@ -18,10 +18,13 @@
     <ClCompile Include="Daily00.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Daily01.cpp">
+    <ClCompile Include="SimpleLinkListMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SimpleLinkList.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkStackMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

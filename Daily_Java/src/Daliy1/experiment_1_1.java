@@ -1,7 +1,10 @@
 package Daliy1;
 
 import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
+//main类
 public class experiment_1_1 {
 	public static void main(String[] args) {
 		Scanner cin=new Scanner(System.in);
@@ -18,5 +21,9 @@ public class experiment_1_1 {
 		}
 		System.out.println("计算结果的商为:"+num1/num2+"余数为:"+num1%num2);
 		cin.close();
+		System.out.println("软件工程21-8_2104060804_冯雪岩");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		System.out.println(df.format(new Date()));
 	}
+	
 }

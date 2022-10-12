@@ -6,10 +6,9 @@
 template<class Type>
 class LinkStackNode
 {
-private:
+public:
 	Type data;
 	LinkStackNode<Type>* next;
-public:
 	LinkStackNode<Type>();
 	LinkStackNode<Type>(Type data);
 	void Output();
@@ -23,17 +22,17 @@ private:
 	int count;
 public:
 	LinkStack<Type>();//构造空栈
+	LinkStack<Type>(vector<Type> vec);
 	LinkStack<Type>(LinkStackNode<Type>* top);//获得栈顶元素
-	LinkStack<Type>(const LinkStack<Type>& stack);//复制构造函数
 	virtual ~LinkStack();//析构函数
 	int Length()const;//求链式栈长度
 	bool Empty()const;//判断链式栈是否为空
-	void Clear();//清空栈
-	
-	bool Push(const LinkStackNode<Type>& e);//入栈
-	bool Top(LinkStackNode& e)const;//返回栈顶元素
-	bool Pop(LinkStackNode& e);//出栈
+	bool Clear();//清空栈
+	bool Push(const Type& e);//入栈
+	bool Top(Type& e)const;//返回栈顶元素
+	bool Pop(Type& e);//出栈
 	LinkStack<Type>& operator=(const LinkStack<Type>& copy);//重载赋值符
+	void Output();
 };
 
 template<class Type>
@@ -70,21 +69,105 @@ LinkStack<Type>::LinkStack(LinkStackNode<Type>* top)
 }
 
 template<class Type>
-LinkStack<Type>::LinkStack(const LinkStack<Type>& stack)
+bool LinkStack<Type>::Clear()
 {
-	if (stack.Empty())
+	if (this->Empty())
 	{
-		this->top = NULL;
-		this->count = 0;
+		return false;
+	}
+	Type median;
+	while (!Empty())
+	{
+		Pop(median);
+	}
+	this->count = 0;
+	return true;
+}
+
+template<class Type>
+LinkStack<Type>::~LinkStack()
+{
+	Clear();
+}
+
+template<class Type>
+bool LinkStack<Type>::Empty()const
+{
+	return this->top == NULL ? true : false;
+}
+
+template<class Type>
+bool LinkStack<Type>::Pop(Type& e)
+{
+	if (Empty())
+	{
+		return false;
 	}
 	else
 	{
-		this->top = new LinkStackNode<Type>(stack.top->data);
-		LinkStackNode<Type>* p = this->top
-		this->count = stack.count;
-		for (LinkStackNode<Type>* median = stack.top->next, int num = 0; num < count; p = p->next,median=median->next)
+		LinkStackNode<Type>* p = this->top;
+		e = p->data;
+		this->top = this->top->next;
+		count--;
+		delete(p);
+		return true;
+	}
+}
+
+template<class Type>
+bool LinkStack<Type>::Top(Type& e)const
+{
+	if (Empty())
+	{
+		return false;
+	}
+	else
+	{
+		e = this->top->data;
+		return true;
+	}
+}
+
+template<class Type>
+bool LinkStack<Type>::Push(const Type& e)
+{
+	if (this->Empty())
+	{
+		this->top = new LinkStackNode<Type>(e);
+		this->count++;
+		return true;
+	}
+	else
+	{
+		if (e <= this->top->data)
 		{
-			p->next = median;
+			cout << "Error！\n错误原因：输入数字不大于前一个数字!\n";
+			return false;
 		}
+		LinkStackNode<Type>* median = new LinkStackNode<Type>(e);
+		median->next = this->top;
+		this->top = median;
+		this->count++;
+		return true;
+	}
+}
+
+template<class Type>
+LinkStack<Type>::LinkStack(vector<Type> vec)
+{
+	for (int i = 0; i < vec.size(); i++)
+	{
+		this->Push(vec[i]);
+	}
+}
+
+template<class Type>
+void LinkStack<Type>::Output()
+{
+	LinkStackNode<Type>* p = new LinkStackNode<Type>();
+	int i = 1;
+	for (p = this->top; p != NULL; p = p->next,i++)
+	{
+		cout << "第" << i << "个元素为：" << p->data<<"  ";
 	}
 }

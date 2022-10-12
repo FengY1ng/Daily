@@ -128,7 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Daily00.cpp" />
-    <ClCompile Include="Daily01.cpp" />
+    <ClCompile Include="LinkStackMain.cpp" />
+    <ClCompile Include="SimpleLinkListMain.cpp" />
     <ClCompile Include="SimpleLinkList.cpp" />
   </ItemGroup>
   <ItemGroup>
