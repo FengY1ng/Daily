@@ -27,6 +27,18 @@
     <ClCompile Include="LinkStackMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="源.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTreeMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphMain.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Graph.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="sy3.asm">
@@ -41,6 +53,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="LinkStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Graph.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

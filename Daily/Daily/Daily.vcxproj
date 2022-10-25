@@ -127,16 +127,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinaryTreeMain.cpp" />
     <ClCompile Include="Daily00.cpp" />
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphMain.cpp" />
     <ClCompile Include="LinkStackMain.cpp" />
     <ClCompile Include="SimpleLinkListMain.cpp" />
     <ClCompile Include="SimpleLinkList.cpp" />
+    <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="sy3.asm" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basis.h" />
+    <ClInclude Include="BinaryTree.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="LinkStack.h" />
     <ClInclude Include="SimpleLinkList.h" />
   </ItemGroup>

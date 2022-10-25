@@ -17,7 +17,6 @@ public class experiment_1_2 {
         count=Accumulate(n-1)+n;
         return count;
     }
-
     public static void main(String[] args){
         int sumFor=0,sumWhile=0;
 
