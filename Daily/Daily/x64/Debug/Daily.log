@@ -1,7 +1,3 @@
 ﻿  GraphMain.cpp
 C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\GraphMain.cpp(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  Myusers.h
-  正在生成代码...
-C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\Graph.h(136): warning C4715: “AdjMatrixUndirGraph<int>::SetElement”: 不是所有的控件路径都返回值
-C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\Graph.h(123): warning C4715: “AdjMatrixUndirGraph<int>::GetElement”: 不是所有的控件路径都返回值
   Daily.vcxproj -> C:\Users\ASUS\Documents\GitHub\Daily\Daily\x64\Debug\Daily.exe
