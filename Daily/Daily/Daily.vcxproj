@@ -132,6 +132,7 @@
     <ClCompile Include="GraphMain.cpp" />
     <ClCompile Include="LinkStackMain.cpp" />
     <ClCompile Include="Myusers.h" />
+    <ClCompile Include="SearchMain.cpp" />
     <ClCompile Include="SimpleLinkListMain.cpp" />
     <ClCompile Include="SimpleLinkList.cpp" />
     <ClCompile Include="源.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="LinkStack.h" />
+    <ClInclude Include="Serach.h" />
     <ClInclude Include="SimpleLinkList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

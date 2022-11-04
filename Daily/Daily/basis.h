@@ -6,9 +6,9 @@
 #include <vector>
 #include <string>
 #include <cmath>
-#include <cstdio>
 #include <cstdlib>
 #include <queue>
+#include <cstdio>
 
 //C
 #include <conio.h>
