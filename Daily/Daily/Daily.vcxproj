@@ -101,7 +101,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
@@ -127,14 +127,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="2023.4.1.cpp" />
+    <ClCompile Include="BinarySortTreeMain.cpp" />
     <ClCompile Include="BinaryTreeMain.cpp" />
     <ClCompile Include="Daily00.cpp" />
     <ClCompile Include="GraphMain.cpp" />
+    <ClCompile Include="HashTableMain.cpp" />
+    <ClCompile Include="homework1.cpp" />
     <ClCompile Include="LinkStackMain.cpp" />
     <ClCompile Include="Myusers.h" />
     <ClCompile Include="SearchMain.cpp" />
     <ClCompile Include="SimpleLinkListMain.cpp" />
     <ClCompile Include="SimpleLinkList.cpp" />
+    <ClCompile Include="SortMain.cpp" />
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="TreadTest.cpp" />
     <ClCompile Include="源.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,11 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="basis.h" />
+    <ClInclude Include="BinarySortTree.h" />
     <ClInclude Include="BinaryTree.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="LinkStack.h" />
     <ClInclude Include="Serach.h" />
     <ClInclude Include="SimpleLinkList.h" />
+    <ClInclude Include="Sort.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

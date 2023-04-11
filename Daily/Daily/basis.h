@@ -9,6 +9,9 @@
 #include <cstdlib>
 #include <queue>
 #include <cstdio>
+#include <list>
+#include <thread>
+#include <mutex>
 
 //C
 #include <conio.h>

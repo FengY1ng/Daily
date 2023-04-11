@@ -13,34 +13,76 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\DataStructure">
+      <UniqueIdentifier>{75ce3ba8-9a1d-4b30-938d-aea1dd01402a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\DataStructure">
+      <UniqueIdentifier>{b73b94a6-3e22-4453-9b0e-591cc9a6e68b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\OS">
+      <UniqueIdentifier>{d58e2b30-8a74-4758-b1dc-313056cf9230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\OS">
+      <UniqueIdentifier>{4dfc4d7e-a666-4dec-9ce3-7bbf1c691a10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Network">
+      <UniqueIdentifier>{1af4de4d-4b4f-4c9f-83ab-e22cc7e718f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Network">
+      <UniqueIdentifier>{d8232c8b-5a50-46ca-b11c-6c43aa8e76a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ACM">
+      <UniqueIdentifier>{fed50305-ae89-4b47-aed9-e6587dacb3b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Daily00.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleLinkListMain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleLinkList.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="LinkStackMain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="源.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="BinaryTreeMain.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphMain.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Myusers.h">
       <Filter>头文件</Filter>
     </ClCompile>
-    <ClCompile Include="SearchMain.cpp">
+    <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="BinarySortTreeMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="BinaryTreeMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTableMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkStackMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleLinkListMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleLinkList.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="SortMain.cpp">
+      <Filter>源文件\DataStructure</Filter>
+    </ClCompile>
+    <ClCompile Include="homework1.cpp">
+      <Filter>源文件\OS</Filter>
+    </ClCompile>
+    <ClCompile Include="TreadTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="2023.4.1.cpp">
+      <Filter>源文件\ACM</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -52,20 +94,29 @@
     <ClInclude Include="basis.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleLinkList.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="LinkStack.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="BinarySortTree.h">
+      <Filter>头文件\DataStructure</Filter>
     </ClInclude>
     <ClInclude Include="BinaryTree.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\DataStructure</Filter>
     </ClInclude>
     <ClInclude Include="Graph.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>头文件\DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkStack.h">
+      <Filter>头文件\DataStructure</Filter>
     </ClInclude>
     <ClInclude Include="Serach.h">
-      <Filter>头文件</Filter>
+      <Filter>头文件\DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleLinkList.h">
+      <Filter>头文件\DataStructure</Filter>
+    </ClInclude>
+    <ClInclude Include="Sort.h">
+      <Filter>头文件\DataStructure</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

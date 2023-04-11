@@ -1,0 +1,91 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch exam_2_1",
+            "request": "launch",
+            "mainClass": "java.exam_2_1",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch PersonApp",
+            "request": "launch",
+            "mainClass": "Daliy1.PersonApp",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch StaticTest",
+            "request": "launch",
+            "mainClass": "Daliy1.StaticTest",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch TextRead",
+            "request": "launch",
+            "mainClass": "Daliy1.TextRead",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch experiment_5_2",
+            "request": "launch",
+            "mainClass": "Daliy1.experiment_5_2",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch homework_1_1",
+            "request": "launch",
+            "mainClass": "Mr_Cai.homework_1_1",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch homework_1_2",
+            "request": "launch",
+            "mainClass": "Mr_Cai.homework_1_2",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch homework_2_1",
+            "request": "launch",
+            "mainClass": "Mr_Cai.homework_2_1",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch homework_2_2",
+            "request": "launch",
+            "mainClass": "Mr_Cai.homework_2_2",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch homework_3_1",
+            "request": "launch",
+            "mainClass": "Mr_Cai.homework_3_1",
+            "projectName": "Daily_Java"
+        },
+        {
+            "type": "java",
+            "name": "Launch exam_1",
+            "request": "launch",
+            "mainClass": "java.exam_1",
+            "projectName": "Daily_Java"
+        }
+    ]
+}

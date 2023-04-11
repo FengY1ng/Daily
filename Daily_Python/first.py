@@ -1,7 +1,2 @@
-# 开发时间: 2022/10/30 15:38
-if True:
-    print("Answer")
-    print("True")
-else:
-    print("Anwser")
-    print("False")
+a, b, c, d = 20, 5.5, True, 4+3j
+print(type(a),type(b),type(c),type(d))
