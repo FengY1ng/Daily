@@ -1,0 +1,86 @@
+C51 COMPILER V9.60.7.0   NIXIE                                                             03/07/2023 13:52:30 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE NIXIE
+OBJECT MODULE PLACED IN .\Objects\Nixie.obj
+COMPILER INVOKED BY: D:\BaiduNetdiskDownload\Keil5\C51\BIN\C51.EXE Nixie.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\Nixie.lst) TABS(2) OBJECT(.\Objects\Nixie.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          
+   4          unsigned char NixieTable[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F};
+   5          
+   6          void Nixie(unsigned char location,number)
+   7          {
+   8   1      
+   9   1          //选择位置
+  10   1          switch (location)
+  11   1          {
+  12   2          case 1:
+  13   2              P2_4=1;
+  14   2              P2_3=1;
+  15   2              P2_2=1;
+  16   2              break;
+  17   2          case 2:
+  18   2               P2_4=1;
+  19   2              P2_3=1;
+  20   2              P2_2=0;
+  21   2              break;
+  22   2          case 3:
+  23   2              P2_4=1;
+  24   2              P2_3=0;
+  25   2              P2_2=1;
+  26   2              break;
+  27   2          case 4:
+  28   2              P2_4=1;
+  29   2              P2_3=0;
+  30   2              P2_2=0;
+  31   2              break;
+  32   2          case 5:
+  33   2              P2_4=0;
+  34   2              P2_3=1;
+  35   2              P2_2=1;
+  36   2              break;
+  37   2          case 6:
+  38   2              P2_4=0;
+  39   2              P2_3=1;
+  40   2              P2_2=0;
+  41   2              break;
+  42   2          case 7:
+  43   2              P2_4=0;
+  44   2              P2_3=0;
+  45   2              P2_2=1;
+  46   2              break;
+  47   2          case 8:
+  48   2              P2_4=0;
+  49   2              P2_3=0;
+  50   2              P2_2=0;
+  51   2              break;
+  52   2          default:
+  53   2              break;
+  54   2          }
+C51 COMPILER V9.60.7.0   NIXIE                                                             03/07/2023 13:52:30 PAGE 2   
+
+  55   1          
+  56   1          P0=NixieTable[number];//传递数字的阳码
+  57   1      
+  58   1          // Delay(1);//数码管消隐
+  59   1          // P0=0x00;
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     99    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

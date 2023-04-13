@@ -1,0 +1,85 @@
+C51 COMPILER V9.54   TIMER0                                                                04/11/2023 23:19:03 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE TIMER0
+OBJECT MODULE PLACED IN .\Objects\Timer0.obj
+COMPILER INVOKED BY: D:\Keil5MDK\C51\BIN\C51.EXE Timer0.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\T
+                    -imer0.lst) OBJECT(.\Objects\Timer0.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          /**
+   4           *@brief 定时器0初始化，1ms@12.000MHz
+   5           *@param 无
+   6           *@retval 无
+   7           */
+   8          void Timer0_Init(void)          //1毫秒@12.000MHz
+   9          {
+  10   1              TMOD &= 0xF0;           //设置定时器模式
+  11   1              TMOD |= 0x01;
+  12   1              TL0 = 0x18;             //设置定时初值
+  13   1              TH0 = 0xFC;             //设置定时初值
+  14   1              TF0 = 0;                //清除TF0标志
+  15   1              TR0 = 1;                //定时器0开始计时
+  16   1              ET0=1;
+  17   1              EA=1;
+  18   1              PT0=0;
+  19   1      }
+  20          
+  21          // //手打的定时器初始化
+  22          // void Timer0_Init()
+  23          // {
+  24          //      //TMOD不可位寻址
+  25          // //   TMOD=0x01;//0000 0001 TMOD后两位置于01将会是16位模式
+  26          //      TMOD=TMOD&0xF0;//把TMOD的低4位清零，高四位保持不变
+  27          //      TMOD=TMOD|0x01;//把TMOD的最低为置1，高四位保持不变
+  28          
+  29          //      //TCON可位寻址
+  30          //      TF0=0;//溢出标志位置0，默认值应为0
+  31          //      TR0=1;//定时器 T1的运行控制位。该位由软件置位和清零。
+  32          
+  33          //      TH0=64535/256;//高8位
+  34          //      TL0=64535%256+1;//低8位，注意+1：定时器计数器是达到65536时才溢出
+  35          
+  36          //      ET0=1;
+  37          //      EA=1;//EA为总控
+  38          
+  39          //      PT0=0;//PT0为0时为低优先级，为1时为高优先级
+  40          // }
+  41          
+  42          /*
+  43          //定时器中断程序模板
+  44          void Timer0_Routine(void) interrupt 1
+  45          {
+  46                  static unsigned int T0Count;
+  47                  //使下一次定时器仍为1ms
+  48                  TH0=0xFC;
+  49                  TL0=0x18;
+  50          
+  51                  //达到1s后执行程序
+  52                  T0Count++;
+  53                  if(T0Count>=1000)
+  54                  {
+C51 COMPILER V9.54   TIMER0                                                                04/11/2023 23:19:03 PAGE 2   
+
+  55                          T0Count=0;
+  56                          
+  57                  }
+  58          }
+  59          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     23    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
