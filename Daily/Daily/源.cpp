@@ -1,51 +1,113 @@
 ﻿#include <iostream>
-#include <stack>
 #include <vector>
+#include <stack>
+
 using namespace std;
 
-stack<int> s;
-
-int RecursiveComputation(vector<int> arr)
+int Calculate(vector<int> vec)
 {
-    int ans = 0, val = 0;
-    for (int i = 0; i < arr.size(); i++)
+    int res = 0;
+    stack<int> stk;
+    for (int i = 0; i < vec.size(); i++)
     {
-        if (arr[i] == 0)
+        if (vec[i] == 0)
         {
-            s.push(0);
+            stk.push(0);
+            if (stk.size() > 1)
+            {
+                int j;
+                stack<int> new_stk;
+                for (j = i ; j < vec.size(); j++)
+                {
+                    if (vec[j] == 0)
+                    {
+                        new_stk.push(0);
+                    }
+                    if (vec[j] == 1)
+                    {
+                        if (stk.size() == 0)
+                        {
+                            break;
+                        }
+                        new_stk.pop();
+                    }
+                }
+                vector<int>::iterator new_beg = vec.begin() + i;
+                vector<int>::iterator new_end = vec.begin() + j + 1;
+                vector<int> new_vec;
+                new_vec.assign(new_beg, new_end);
+                res += 2 * Calculate(new_vec);
+            }
         }
         else
         {
-            val = 1;
-            s.pop();
-            while (!s.empty())
-            {
-                vector<int>::iterator beg = arr.begin() + i;
-                vector<int>::iterator end = find(beg, arr.end(), 1);
-                i += end - beg;
-                vector<int> vec;
-                vec.assign(beg, end);
-                val += 2*RecursiveComputation(vec);
-            }
-            
+            stk.pop();
+            res += 1;
         }
-        ans += val;
-        val = 0;
     }
-    return ans;
+    return res;
 }
 
-int main() {
-    int n;
-    cin >> n;
-    vector<int> arr(n);
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    
-    cout << RecursiveComputation(arr) << endl;
-    return 0;
+int main()
+{
+     int n;
+     cin>>n;
+     vector<int> vec(n,0);
+     for(int i=0;i<vec.size();i++)
+     {
+         cin>>vec[i];
+     }
+     cout<<Calculate(vec)<<endl;
 }
+
+//#include <iostream>
+//#include <stack>
+//#include <vector>
+//using namespace std;
+//
+//stack<int> s;
+//
+//int RecursiveComputation(vector<int> arr)
+//{
+//    int ans = 0, val = 0;
+//    for (int i = 0; i < arr.size(); i++)
+//    {
+//        if (arr[i] == 0)
+//        {
+//            s.push(0);
+//        }
+//        else
+//        {
+//            val = 1;
+//            s.pop();
+//            while (!s.empty())
+//            {
+//                vector<int>::iterator beg = arr.begin() + i;
+//                vector<int>::iterator end = find(beg, arr.end(), 1);
+//                i += end - beg;
+//                vector<int> vec;
+//                vec.assign(beg, end);
+//                val += 2*RecursiveComputation(vec);
+//            }
+//            
+//        }
+//        ans += val;
+//        val = 0;
+//    }
+//    return ans;
+//}
+//
+//int main() {
+//    int n;
+//    cin >> n;
+//    vector<int> arr(n);
+//    for (int i = 0; i < n; i++) {
+//        cin >> arr[i];
+//    }
+//    
+//    cout << RecursiveComputation(arr) << endl;
+//    return 0;
+//}
 
 
 
