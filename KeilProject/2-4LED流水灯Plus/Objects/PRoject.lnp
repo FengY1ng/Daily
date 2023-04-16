@@ -1,3 +1,0 @@
-".\Objects\main.obj" 
-TO ".\Objects\PRoject" 
-PRINT(".\Listings\PRoject.m51") RAMSIZE(256) 

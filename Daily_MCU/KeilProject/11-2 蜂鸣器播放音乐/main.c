@@ -56,7 +56,7 @@ unsigned int FreqTable[]={
 };
 
 //乐谱
-unsigned int Music[]={
+unsigned char code Music[]={
     //(1)
     M3,8,
     M2,8,
