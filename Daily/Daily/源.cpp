@@ -1,64 +1,82 @@
 ﻿#include <iostream>
-#include <vector>
-#include <stack>
-
 using namespace std;
-
-int Calculate(vector<int> vec)
-{
-    int res = 0;
-    stack<int> stk;
-    for (int i = 0; i < vec.size(); i++)
-    {
-        if (vec[i] == 0)
-        {
-            stk.push(0);
-            if (stk.size() > 1)
-            {
-                int j;
-                stack<int> new_stk;
-                for (j = i ; j < vec.size(); j++)
-                {
-                    if (vec[j] == 0)
-                    {
-                        new_stk.push(0);
-                    }
-                    if (vec[j] == 1)
-                    {
-                        if (stk.size() == 0)
-                        {
-                            break;
-                        }
-                        new_stk.pop();
-                    }
-                }
-                vector<int>::iterator new_beg = vec.begin() + i;
-                vector<int>::iterator new_end = vec.begin() + j + 1;
-                vector<int> new_vec;
-                new_vec.assign(new_beg, new_end);
-                res += 2 * Calculate(new_vec);
-            }
-        }
-        else
-        {
-            stk.pop();
-            res += 1;
-        }
-    }
-    return res;
-}
-
 int main()
 {
-     int n;
-     cin>>n;
-     vector<int> vec(n,0);
-     for(int i=0;i<vec.size();i++)
-     {
-         cin>>vec[i];
-     }
-     cout<<Calculate(vec)<<endl;
+    int a = 0, b = 0, c;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> c;
+        a += (c >= 60 ? 1 : 0);
+        b += (c >= 85 ? 1 : 0);
+    }
+    cout << (a * 100) / n << "%" << endl << b * 100 / n << "%" << endl;
+
+    return 0;
 }
+
+//#include <iostream>
+//#include <vector>
+//#include <stack>
+//
+//using namespace std;
+//
+//int Calculate(vector<int> vec)
+//{
+//    int res = 0;
+//    stack<int> stk;
+//    for (int i = 0; i < vec.size(); i++)
+//    {
+//        if (vec[i] == 0)
+//        {
+//            stk.push(0);
+//            if (stk.size() > 1)
+//            {
+//                int j;
+//                stack<int> new_stk;
+//                for (j = i ; j < vec.size(); j++)
+//                {
+//                    if (vec[j] == 0)
+//                    {
+//                        new_stk.push(0);
+//                    }
+//                    if (vec[j] == 1)
+//                    {
+//                        if (stk.size() == 0)
+//                        {
+//                            break;
+//                        }
+//                        new_stk.pop();
+//                    }
+//                }
+//                vector<int>::iterator new_beg = vec.begin() + i;
+//                vector<int>::iterator new_end = vec.begin() + j + 1;
+//                vector<int> new_vec;
+//                new_vec.assign(new_beg, new_end);
+//                res += 2 * Calculate(new_vec);
+//            }
+//        }
+//        else
+//        {
+//            stk.pop();
+//            res += 1;
+//        }
+//    }
+//    return res;
+//}
+//
+//int main()
+//{
+//     int n;
+//     cin>>n;
+//     vector<int> vec(n,0);
+//     for(int i=0;i<vec.size();i++)
+//     {
+//         cin>>vec[i];
+//     }
+//     cout<<Calculate(vec)<<endl;
+//}
 
 //#include <iostream>
 //#include <stack>
