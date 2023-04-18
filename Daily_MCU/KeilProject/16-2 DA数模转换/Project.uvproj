@@ -369,14 +369,24 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>XPT2046.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\XPT2046.c</FilePath>
-            </File>
-            <File>
               <FileName>Delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Key.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Key.h</FilePath>
+            </File>
+            <File>
+              <FileName>Nixie.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Nixie.c</FilePath>
             </File>
             <File>
               <FileName>Delay.h</FileName>
@@ -384,14 +394,19 @@
               <FilePath>.\Delay.h</FilePath>
             </File>
             <File>
-              <FileName>LCD1602.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\LCD1602.c</FilePath>
+              <FileName>Nixie.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Nixie.h</FilePath>
             </File>
             <File>
-              <FileName>LCD1602.h</FileName>
+              <FileName>Timer0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer0.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer0.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\LCD1602.h</FilePath>
+              <FilePath>.\Timer0.h</FilePath>
             </File>
           </Files>
         </Group>

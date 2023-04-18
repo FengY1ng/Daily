@@ -1,0 +1,53 @@
+Rebuild target 'Target 1'
+compiling main.c...
+compiling XPT2046.c...
+linking...
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_SHOWNUM
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  ?_LCD_SHOWNUM?BYTE
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  LCD_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _LCD_SHOWSTRING
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _DELAY
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  LCD_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 0072H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_SHOWSTRING
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 007FH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  ?_LCD_SHOWNUM?BYTE
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 008BH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _LCD_SHOWNUM
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 0096H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _DELAY
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 009DH
+
+Program Size: data=13.0 xdata=0 code=186
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 10 Warning(s).
+Build Time Elapsed:  00:00:00
