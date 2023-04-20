@@ -1,5 +1,10 @@
 #include <REGX52.H>
 
+/**
+ * @brief  Initialize the interrupt 0
+ * @param  None
+ * @retval None
+*/
 void Int0_Init(void)
 {
 	IT0=0;

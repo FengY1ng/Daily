@@ -83,15 +83,15 @@ void Int0_Routine(void) interrupt 0
         Timer0_SetCounter(0);
         LCD_ShowNum(2,3,IR_Time,7);
         //! There is a bug here, the IR_Time is not correct.
-        if(IR_Time>=0 && IR_Time<100000)
+        if(IR_Time>=1032-500 && IR_Time<1032+500)
         {
             P2=1;
-            IR_Data[IR_pData/8]&=~(0x01<<IR_pData%8);
+            IR_Data[IR_pData/8]&=~(0x01<<(IR_pData%8));
             IR_pData++;
         }
-        else if(IR_Time>=0 && IR_Time<100000)
+        else if(IR_Time>=2074-500 && IR_Time<2074+500)
         {
-            IR_Data[IR_pData/8]|=(0x01<<IR_pData%8);
+            IR_Data[IR_pData/8]|=(0x01<<(IR_pData%8));
             IR_pData++;
         }
         else
