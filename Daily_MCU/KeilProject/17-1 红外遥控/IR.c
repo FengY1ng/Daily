@@ -1,8 +1,9 @@
 #include <REGX52.H>
 #include "Timer0.h"
 #include "Int0.h"
+#include "LCD1602.h"
 
-unsigned int IR_Time;
+unsigned int IR_Time;//计时
 unsigned char IR_State;
 
 unsigned char IR_Data[4];
@@ -63,7 +64,6 @@ void Int0_Routine(void) interrupt 0
         Timer0_SetCounter(0);
         if(IR_Time>12441-500 && IR_Time<12441+500)
         {
-            P2=0;
             IR_State=2;
         }
         else if(IR_Time>10368-500 && IR_Time<10368+500)
@@ -81,21 +81,22 @@ void Int0_Routine(void) interrupt 0
     {
         IR_Time=Timer0_GetCounter();
         Timer0_SetCounter(0);
-
+        LCD_ShowNum(2,3,IR_Time,7);
         //! There is a bug here, the IR_Time is not correct.
-        if(IR_Time>1000-500 && IR_Time<1000+500)
+        if(IR_Time>=0 && IR_Time<100000)
         {
+            P2=1;
             IR_Data[IR_pData/8]&=~(0x01<<IR_pData%8);
             IR_pData++;
         }
-        else if(IR_Time>2000-500 && IR_Time<2000+500)
+        else if(IR_Time>=0 && IR_Time<100000)
         {
             IR_Data[IR_pData/8]|=(0x01<<IR_pData%8);
             IR_pData++;
         }
         else
         {
-            P2=1;
+            P2++;
             IR_pData=0;
             IR_State=1;
         }

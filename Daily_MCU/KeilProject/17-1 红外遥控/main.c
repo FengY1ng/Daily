@@ -8,20 +8,32 @@ unsigned char Address,Command;
 
 void main()
 {
+    P2=0;
     LCD_Init();
-    LCD_ShowString(1,1,"A");
+    LCD_ShowString(1,1,"ADDR  CMD    NUM");
+    LCD_ShowString(2,1,"00    00     000");
 
     IR_Init();
 
     while(1)
     {
-        if(IR_GetDataFlag())
+        if(IR_GetDataFlag() || IR_GetRepeatFlag())
         {
             Address=IR_GetAddress();
             Command=IR_GetCommand();
 
             LCD_ShowHexNum(2,1,Address,2);
-            LCD_ShowHexNum(2,5,Command,2);
+            LCD_ShowHexNum(2,7,Command,2);
+
+            if(Command==0x15)
+            {
+                Num--;
+            }
+            if(Command==0x09)
+            {
+                Num++;
+            }
+            LCD_ShowNum(2,14,Num,3);
         }
     }
 }
