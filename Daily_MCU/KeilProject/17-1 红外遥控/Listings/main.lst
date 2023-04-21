@@ -1,4 +1,4 @@
-C51 COMPILER V9.54   MAIN                                                                  04/20/2023 22:15:49 PAGE 1   
+C51 COMPILER V9.54   MAIN                                                                  04/21/2023 20:56:15 PAGE 1   
 
 
 C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
@@ -14,11 +14,11 @@ line level    source
    4          #include "IR.h"
    5          
    6          unsigned char Num;
-   7          unsigned char Address,Command;
-   8          
-   9          void main()
-  10          {
-  11   1          P2=0;
+   7          unsigned char Address;
+   8          unsigned char Command;
+   9          
+  10          void main()
+  11          {
   12   1          LCD_Init();
   13   1          LCD_ShowString(1,1,"ADDR  CMD    NUM");
   14   1          LCD_ShowString(2,1,"00    00     000");
@@ -35,11 +35,11 @@ line level    source
   25   3                  LCD_ShowHexNum(2,1,Address,2);
   26   3                  LCD_ShowHexNum(2,7,Command,2);
   27   3      
-  28   3                  if(Command==0x15)
+  28   3                  if(Command==IR_VOL_MINUS)
   29   3                  {
   30   4                      Num--;
   31   4                  }
-  32   3                  if(Command==0x09)
+  32   3                  if(Command==IR_VOL_ADD)
   33   3                  {
   34   4                      Num++;
   35   4                  }
@@ -47,10 +47,12 @@ line level    source
   37   3              }
   38   2          }
   39   1      }
+  40          
+  41          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    118    ----
+   CODE SIZE        =    115    ----
    CONSTANT SIZE    =     34    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

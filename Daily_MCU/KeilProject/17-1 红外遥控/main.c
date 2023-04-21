@@ -4,11 +4,11 @@
 #include "IR.h"
 
 unsigned char Num;
-unsigned char Address,Command;
+unsigned char Address;
+unsigned char Command;
 
 void main()
 {
-    P2=0;
     LCD_Init();
     LCD_ShowString(1,1,"ADDR  CMD    NUM");
     LCD_ShowString(2,1,"00    00     000");
@@ -25,11 +25,11 @@ void main()
             LCD_ShowHexNum(2,1,Address,2);
             LCD_ShowHexNum(2,7,Command,2);
 
-            if(Command==0x15)
+            if(Command==IR_VOL_MINUS)
             {
                 Num--;
             }
-            if(Command==0x09)
+            if(Command==IR_VOL_ADD)
             {
                 Num++;
             }
@@ -37,3 +37,5 @@ void main()
         }
     }
 }
+
+
