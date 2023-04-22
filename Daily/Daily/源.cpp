@@ -1,7 +1,9 @@
 ﻿#include <iostream>
+#include <vector>
 using namespace std;
 int main()
 {
+    vector<int> vec(120, -1);
     int a = 0, b = 0, c;
     int n;
     cin >> n;
