@@ -14,7 +14,16 @@ linking...
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_NIXIESHOWHYPHEN?NIXIE
 
-Program Size: data=28.0 xdata=0 code=283
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  TIMER0_INIT
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 011CH
+
+Program Size: data=30.0 xdata=0 code=330
 creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 4 Warning(s).
-Build Time Elapsed:  00:00:03
+".\Objects\Project" - 0 Error(s), 6 Warning(s).
+Build Time Elapsed:  00:00:00

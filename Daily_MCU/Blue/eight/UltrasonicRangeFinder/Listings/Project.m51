@@ -1,9 +1,9 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/24/2023  20:23:15  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/26/2023  11:56:51  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
-D:\KEIL5MDK\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Nixie.obj TO .\Objects\Project PRINT (.\Listings\Project.m51)
->>  RAMSIZE (256)
+D:\KEIL5MDK\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Nixie.obj, .\Objects\Timer0.obj TO .\Objects\Project PRINT (.
+>> \Listings\Project.m51) RAMSIZE (256) DISABLEWARNING (16)
 
 
 MEMORY MODEL: SMALL
@@ -12,6 +12,7 @@ MEMORY MODEL: SMALL
 INPUT MODULES INCLUDED:
   .\Objects\main.obj (MAIN)
   .\Objects\Nixie.obj (NIXIE)
+  .\Objects\Timer0.obj (TIMER0)
   D:\KEIL5MDK\C51\LIB\C51S.LIB (?C_STARTUP)
   D:\KEIL5MDK\C51\LIB\C51S.LIB (?C_INIT)
 
@@ -25,20 +26,25 @@ LINK MAP OF MODULE:  .\Objects\Project (MAIN)
             * * * * * * *   D A T A   M E M O R Y   * * * * * * *
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
             DATA    0008H     0013H     UNIT         ?DT?NIXIE
-            IDATA   001BH     0001H     UNIT         ?STACK
+            DATA    001BH     0002H     UNIT         ?DT?MAIN
+            IDATA   001DH     0001H     UNIT         ?STACK
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
             CODE    0000H     0003H     ABSOLUTE     
-                    0003H     07FDH                  *** GAP ***
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     07F2H                  *** GAP ***
             CODE    0800H     008CH     UNIT         ?C_C51STARTUP
-            CODE    088CH     0031H     UNIT         ?PR?PROCESSINIT?MAIN
-            CODE    08BDH     0018H     UNIT         ?C_INITSEG
-            CODE    08D5H     000FH     UNIT         ?PR?_NIXIESHOWNUM?NIXIE
-            CODE    08E4H     000BH     UNIT         ?PR?_NIXIESHOWPOINT?NIXIE
-            CODE    08EFH     000BH     UNIT         ?PR?_NIXIESHOWDASH?NIXIE
-            CODE    08FAH     000BH     UNIT         ?PR?_NIXIESHOWHYPHEN?NIXIE
-            CODE    0905H     000AH     UNIT         ?PR?_NIXIESHOWOWN?NIXIE
-            CODE    090FH     0009H     UNIT         ?PR?MAIN?MAIN
+            CODE    088CH     0044H     UNIT         ?PR?MAIN?MAIN
+            CODE    08D0H     002AH     UNIT         ?PR?PROCESSINIT?NIXIE
+            CODE    08FAH     0026H     UNIT         ?PR?TIMER0_ROUTINE?MAIN
+            CODE    0920H     0018H     UNIT         ?C_INITSEG
+            CODE    0938H     0017H     UNIT         ?PR?TIMER0_INIT?TIMER0
+            CODE    094FH     000FH     UNIT         ?PR?_NIXIESHOWNUM?NIXIE
+            CODE    095EH     000BH     UNIT         ?PR?_NIXIESHOWPOINT?NIXIE
+            CODE    0969H     000BH     UNIT         ?PR?_NIXIESHOWDASH?NIXIE
+            CODE    0974H     000BH     UNIT         ?PR?_NIXIESHOWHYPHEN?NIXIE
+            CODE    097FH     000AH     UNIT         ?PR?_NIXIESHOWOWN?NIXIE
 
 
 
@@ -53,116 +59,162 @@ SEGMENT
   +--> ?C_INITSEG
 
 ?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2023  11:56:51  PAGE 2
+
+
+  +--> ?PR?TIMER0_INIT?TIMER0
   +--> ?PR?_NIXIESHOWNUM?NIXIE
+  +--> ?PR?_NIXIESHOWOWN?NIXIE
 
 
 
 SYMBOL TABLE OF MODULE:  .\Objects\Project (MAIN)
-
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2023  20:23:15  PAGE 2
-
 
   VALUE           TYPE          NAME
   ----------------------------------
 
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:090FH         PUBLIC        main
-  C:088CH         PUBLIC        ProcessInit
-  -------         PROC          PROCESSINIT
-  C:088CH         LINE#         4
+  C:08FAH         PUBLIC        Timer0_Routine
+  C:088CH         PUBLIC        main
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  -------         PROC          MAIN
   C:088CH         LINE#         5
   C:088CH         LINE#         6
-  C:0893H         LINE#         7
-  C:089AH         LINE#         8
-  C:08A1H         LINE#         9
-  C:08A8H         LINE#         10
-  C:08AFH         LINE#         11
-  C:08B6H         LINE#         12
-  -------         ENDPROC       PROCESSINIT
-  -------         PROC          MAIN
-  C:090FH         LINE#         15
-  C:090FH         LINE#         16
-  C:090FH         LINE#         17
-  C:0916H         LINE#         18
-  C:0916H         LINE#         19
-  C:0916H         LINE#         21
+  C:088CH         LINE#         7
+  C:088FH         LINE#         8
+  C:0896H         LINE#         10
+  C:089DH         LINE#         11
+  C:08A4H         LINE#         12
+  C:08ABH         LINE#         13
+  C:08B2H         LINE#         14
+  C:08B9H         LINE#         15
+  C:08C0H         LINE#         16
+  C:08C7H         LINE#         17
+  C:08C7H         LINE#         18
+  C:08C7H         LINE#         19
+  C:08CEH         LINE#         20
   -------         ENDPROC       MAIN
+  -------         PROC          TIMER0_ROUTINE
+  -------         DO            
+  D:001BH         SYMBOL        T0Count
+  -------         ENDDO         
+  C:08FAH         LINE#         23
+  C:08FEH         LINE#         26
+  C:0901H         LINE#         27
+  C:0904H         LINE#         28
+  C:090CH         LINE#         29
+  C:0915H         LINE#         30
+  C:0915H         LINE#         31
+  C:091BH         LINE#         32
+  C:091BH         LINE#         33
+  -------         ENDPROC       TIMER0_ROUTINE
   -------         ENDMOD        MAIN
 
   -------         MODULE        NIXIE
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:00A0H         PUBLIC        P2
-  C:08FAH         PUBLIC        _NixieShowHyphen
-  C:08EFH         PUBLIC        _NixieShowDash
-  C:08E4H         PUBLIC        _NixieShowPoint
+  C:0974H         PUBLIC        _NixieShowHyphen
+  C:0969H         PUBLIC        _NixieShowDash
+  C:095EH         PUBLIC        _NixieShowPoint
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2023  11:56:51  PAGE 3
+
+
   D:0008H         PUBLIC        NixieNum
-  C:08D5H         PUBLIC        _NixieShowNum
-  C:0905H         PUBLIC        _NixieShowOwn
+  C:094FH         PUBLIC        _NixieShowNum
+  C:097FH         PUBLIC        _NixieShowOwn
   D:0013H         PUBLIC        NixieLocal
+  C:08D0H         PUBLIC        ProcessInit
   -------         PROC          _NIXIESHOWNUM
   D:0007H         SYMBOL        local
   D:0005H         SYMBOL        num
-  C:08D5H         LINE#         6
-  C:08D5H         LINE#         7
-  C:08D5H         LINE#         8
-  C:08DCH         LINE#         9
-  C:08E3H         LINE#         10
+  C:094FH         LINE#         6
+  C:094FH         LINE#         7
+  C:094FH         LINE#         8
+  C:0956H         LINE#         9
+  C:095DH         LINE#         10
   -------         ENDPROC       _NIXIESHOWNUM
   -------         PROC          _NIXIESHOWPOINT
   D:0007H         SYMBOL        local
-  C:08E4H         LINE#         12
-  C:08E4H         LINE#         13
-  C:08E4H         LINE#         14
-  C:08EBH         LINE#         15
-  C:08EEH         LINE#         16
+  C:095EH         LINE#         12
+  C:095EH         LINE#         13
+  C:095EH         LINE#         14
+  C:0965H         LINE#         15
+  C:0968H         LINE#         16
   -------         ENDPROC       _NIXIESHOWPOINT
   -------         PROC          _NIXIESHOWDASH
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2023  20:23:15  PAGE 3
-
-
   D:0007H         SYMBOL        local
-  C:08EFH         LINE#         18
-  C:08EFH         LINE#         19
-  C:08EFH         LINE#         20
-  C:08F6H         LINE#         21
-  C:08F9H         LINE#         22
+  C:0969H         LINE#         18
+  C:0969H         LINE#         19
+  C:0969H         LINE#         20
+  C:0970H         LINE#         21
+  C:0973H         LINE#         22
   -------         ENDPROC       _NIXIESHOWDASH
   -------         PROC          _NIXIESHOWHYPHEN
   D:0007H         SYMBOL        local
-  C:08FAH         LINE#         24
-  C:08FAH         LINE#         25
-  C:08FAH         LINE#         26
-  C:0901H         LINE#         27
-  C:0904H         LINE#         28
+  C:0974H         LINE#         24
+  C:0974H         LINE#         25
+  C:0974H         LINE#         26
+  C:097BH         LINE#         27
+  C:097EH         LINE#         28
   -------         ENDPROC       _NIXIESHOWHYPHEN
   -------         PROC          _NIXIESHOWOWN
   D:0007H         SYMBOL        local
   D:0005H         SYMBOL        Data
-  C:0905H         LINE#         30
-  C:0905H         LINE#         31
-  C:0905H         LINE#         32
-  C:090CH         LINE#         33
-  C:090EH         LINE#         34
+  C:097FH         LINE#         30
+  C:097FH         LINE#         31
+  C:097FH         LINE#         32
+  C:0986H         LINE#         33
+  C:0988H         LINE#         34
   -------         ENDPROC       _NIXIESHOWOWN
+  -------         PROC          PROCESSINIT
+  C:08D0H         LINE#         36
+  C:08D0H         LINE#         37
+  C:08D0H         LINE#         38
+  C:08D7H         LINE#         39
+  C:08DEH         LINE#         40
+  C:08E4H         LINE#         41
+  C:08EAH         LINE#         42
+  C:08EEH         LINE#         43
+  C:08F4H         LINE#         44
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/26/2023  11:56:51  PAGE 4
+
+
+  -------         ENDPROC       PROCESSINIT
   -------         ENDMOD        NIXIE
 
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?PROCESSINIT?MAIN
-
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_NIXIESHOWPOINT?NIXIE
-
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_NIXIESHOWDASH?NIXIE
-
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_NIXIESHOWHYPHEN?NIXIE
+  -------         MODULE        TIMER0
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00A8H.7       PUBLIC        EA
+  C:0938H         PUBLIC        Timer0_Init
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          TIMER0_INIT
+  C:0938H         LINE#         3
+  C:0938H         LINE#         4
+  C:0938H         LINE#         5
+  C:093BH         LINE#         6
+  C:093EH         LINE#         7
+  C:0941H         LINE#         8
+  C:0944H         LINE#         9
+  C:0946H         LINE#         10
+  C:0948H         LINE#         11
+  C:094AH         LINE#         12
+  C:094CH         LINE#         13
+  C:094EH         LINE#         14
+  -------         ENDPROC       TIMER0_INIT
+  -------         ENDMOD        TIMER0
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008BH BYTE ( 6%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00FFH BYTE (12%) *
 ******************************************************************************
 
-Program Size: data=28.0 xdata=0 code=283
-LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)
+Program Size: data=30.0 xdata=0 code=399
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
