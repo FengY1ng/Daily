@@ -1,19 +1,24 @@
-﻿#include <iostream>
-#include <vector>
+﻿#include<iostream>
 using namespace std;
-int main()
-{
-    vector<int> vec(120, -1);
-    int a = 0, b = 0, c;
-    int n;
-    cin >> n;
-    for (int i = 0; i < n; i++)
+int main() {
+    int n;        //3~20
+    while (cin >> n)
     {
-        cin >> c;
-        a += (c >= 60 ? 1 : 0);
-        b += (c >= 85 ? 1 : 0);
+        for (int i = 0; i < n; i++)
+            cout << "* ";
+        cout << endl;
+        for (int i = 0; i < n - 2; i++)
+        {
+            cout << "* ";
+            for (int j = 0; j < n - 2; j++)
+                cout << "  ";
+            cout << "* ";
+            cout << endl;
+        }
+        for (int i = 0; i < n; i++)
+            cout << "* ";
     }
-    cout << (a * 100) / n << "%" << endl << b * 100 / n << "%" << endl;
+
 
     return 0;
 }

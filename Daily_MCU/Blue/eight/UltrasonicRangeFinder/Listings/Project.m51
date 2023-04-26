@@ -1,0 +1,168 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/24/2023  20:23:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL5MDK\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Nixie.obj TO .\Objects\Project PRINT (.\Listings\Project.m51)
+>>  RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Nixie.obj (NIXIE)
+  D:\KEIL5MDK\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL5MDK\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0013H     UNIT         ?DT?NIXIE
+            IDATA   001BH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0031H     UNIT         ?PR?PROCESSINIT?MAIN
+            CODE    08BDH     0018H     UNIT         ?C_INITSEG
+            CODE    08D5H     000FH     UNIT         ?PR?_NIXIESHOWNUM?NIXIE
+            CODE    08E4H     000BH     UNIT         ?PR?_NIXIESHOWPOINT?NIXIE
+            CODE    08EFH     000BH     UNIT         ?PR?_NIXIESHOWDASH?NIXIE
+            CODE    08FAH     000BH     UNIT         ?PR?_NIXIESHOWHYPHEN?NIXIE
+            CODE    0905H     000AH     UNIT         ?PR?_NIXIESHOWOWN?NIXIE
+            CODE    090FH     0009H     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN
+  +--> ?PR?_NIXIESHOWNUM?NIXIE
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Project (MAIN)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2023  20:23:15  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:090FH         PUBLIC        main
+  C:088CH         PUBLIC        ProcessInit
+  -------         PROC          PROCESSINIT
+  C:088CH         LINE#         4
+  C:088CH         LINE#         5
+  C:088CH         LINE#         6
+  C:0893H         LINE#         7
+  C:089AH         LINE#         8
+  C:08A1H         LINE#         9
+  C:08A8H         LINE#         10
+  C:08AFH         LINE#         11
+  C:08B6H         LINE#         12
+  -------         ENDPROC       PROCESSINIT
+  -------         PROC          MAIN
+  C:090FH         LINE#         15
+  C:090FH         LINE#         16
+  C:090FH         LINE#         17
+  C:0916H         LINE#         18
+  C:0916H         LINE#         19
+  C:0916H         LINE#         21
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        NIXIE
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:00A0H         PUBLIC        P2
+  C:08FAH         PUBLIC        _NixieShowHyphen
+  C:08EFH         PUBLIC        _NixieShowDash
+  C:08E4H         PUBLIC        _NixieShowPoint
+  D:0008H         PUBLIC        NixieNum
+  C:08D5H         PUBLIC        _NixieShowNum
+  C:0905H         PUBLIC        _NixieShowOwn
+  D:0013H         PUBLIC        NixieLocal
+  -------         PROC          _NIXIESHOWNUM
+  D:0007H         SYMBOL        local
+  D:0005H         SYMBOL        num
+  C:08D5H         LINE#         6
+  C:08D5H         LINE#         7
+  C:08D5H         LINE#         8
+  C:08DCH         LINE#         9
+  C:08E3H         LINE#         10
+  -------         ENDPROC       _NIXIESHOWNUM
+  -------         PROC          _NIXIESHOWPOINT
+  D:0007H         SYMBOL        local
+  C:08E4H         LINE#         12
+  C:08E4H         LINE#         13
+  C:08E4H         LINE#         14
+  C:08EBH         LINE#         15
+  C:08EEH         LINE#         16
+  -------         ENDPROC       _NIXIESHOWPOINT
+  -------         PROC          _NIXIESHOWDASH
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2023  20:23:15  PAGE 3
+
+
+  D:0007H         SYMBOL        local
+  C:08EFH         LINE#         18
+  C:08EFH         LINE#         19
+  C:08EFH         LINE#         20
+  C:08F6H         LINE#         21
+  C:08F9H         LINE#         22
+  -------         ENDPROC       _NIXIESHOWDASH
+  -------         PROC          _NIXIESHOWHYPHEN
+  D:0007H         SYMBOL        local
+  C:08FAH         LINE#         24
+  C:08FAH         LINE#         25
+  C:08FAH         LINE#         26
+  C:0901H         LINE#         27
+  C:0904H         LINE#         28
+  -------         ENDPROC       _NIXIESHOWHYPHEN
+  -------         PROC          _NIXIESHOWOWN
+  D:0007H         SYMBOL        local
+  D:0005H         SYMBOL        Data
+  C:0905H         LINE#         30
+  C:0905H         LINE#         31
+  C:0905H         LINE#         32
+  C:090CH         LINE#         33
+  C:090EH         LINE#         34
+  -------         ENDPROC       _NIXIESHOWOWN
+  -------         ENDMOD        NIXIE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?PROCESSINIT?MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_NIXIESHOWPOINT?NIXIE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_NIXIESHOWDASH?NIXIE
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_NIXIESHOWHYPHEN?NIXIE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008BH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=28.0 xdata=0 code=283
+LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)

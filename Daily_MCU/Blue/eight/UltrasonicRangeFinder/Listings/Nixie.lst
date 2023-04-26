@@ -1,0 +1,58 @@
+C51 COMPILER V9.54   NIXIE                                                                 04/24/2023 20:23:15 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE NIXIE
+OBJECT MODULE PLACED IN .\Objects\Nixie.obj
+COMPILER INVOKED BY: D:\Keil5MDK\C51\BIN\C51.EXE Nixie.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Ni
+                    -xie.lst) OBJECT(.\Objects\Nixie.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          unsigned char NixieNum[]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x80};
+   4          unsigned char NixieLocal[]={0x1C,0x18,0x14,0x10,0x0C,0x08,0x04,0x00};
+   5          
+   6          void NixieShowNum(unsigned char local,unsigned char num)
+   7          {
+   8   1          P2=NixieLocal[local-1];
+   9   1          P0=NixieNum[num];
+  10   1      }
+  11          
+  12          void NixieShowPoint(unsigned char local)
+  13          {
+  14   1          P2=NixieLocal[local-1];
+  15   1          P0=NixieNum[10];
+  16   1      }
+  17          
+  18          void NixieShowDash(unsigned char local)
+  19          {
+  20   1          P2=NixieLocal[local-1];
+  21   1          P0=0x40;
+  22   1      }
+  23          
+  24          void NixieShowHyphen(unsigned char local)
+  25          {
+  26   1          P2=NixieLocal[local-1];
+  27   1          P0=0x08;
+  28   1      }
+  29          
+  30          void NixieShowOwn(unsigned char local,unsigned char Data)
+  31          {
+  32   1          P2=NixieLocal[local-1];
+  33   1          P0=Data;
+  34   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     58    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     19    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
