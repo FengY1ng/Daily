@@ -24,12 +24,20 @@ Project File Date:  04/26/2023
 <h2>Output:</h2>
 Rebuild target 'Target 1'
 compiling main.c...
+main.c(13): warning C206: 'Key': missing function-prototype
 compiling Nixie.c...
 compiling Timer0.c...
 linking...
-Program Size: data=30.0 xdata=0 code=399
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  KEY
+    MODULE:  .\Objects\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  KEY
+    MODULE:  .\Objects\main.obj (MAIN)
+    ADDRESS: 0915H
+Program Size: data=31.0 xdata=0 code=352
 creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 0 Warning(s).
+".\Objects\Project" - 0 Error(s), 3 Warning(s).
 </pre>
 </body>
 </html>

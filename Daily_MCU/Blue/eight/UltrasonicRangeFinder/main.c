@@ -2,19 +2,27 @@
 #include "Nixie.h"
 #include "Timer0.h"
 
+unsigned char KeyNum=0;
+
 void main()
 {
-    Timer0_Init();  
-    NixieShowOwn(0,0x39);
-    NixieShowNum(2,0);
-    NixieShowNum(3,3);
-    NixieShowNum(4,0);
-    NixieShowNum(5,0);
-    NixieShowNum(6,4);
-    NixieShowNum(7,0);
+    Timer0_Init(); 
+    ProcessInit();
     while(1)
     {
-        NixieShowNum(1,4);
+        KeyNum=Key();
+        if(KeyNum==0)
+        {
+            
+        }
+        if(KeyNum==1)
+        {
+
+        }
+        if(KeyNum==2)
+        {
+
+        }
     }
 }
 
