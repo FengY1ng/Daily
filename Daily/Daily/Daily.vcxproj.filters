@@ -84,6 +84,9 @@
     <ClCompile Include="2023.4.1.cpp">
       <Filter>源文件\ACM</Filter>
     </ClCompile>
+    <ClCompile Include="源1.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="sy3.asm">
