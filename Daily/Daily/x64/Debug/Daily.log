@@ -1,4 +1,2 @@
 ﻿  源1.cpp
-C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\源1.cpp(5,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\源1.cpp(3,12): warning C4101: “c”: 未引用的局部变量
-LINK : fatal error LNK1168: 无法打开 C:\Users\ASUS\Documents\GitHub\Daily\Daily\x64\Debug\Daily.exe 进行写入
+  Daily.vcxproj -> C:\Users\ASUS\Documents\GitHub\Daily\Daily\x64\Debug\Daily.exe
