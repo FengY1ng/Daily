@@ -1,30 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include <iostream>
+#include <conio.h>
+#include <string.h>
 
 using namespace std;
-//第五题：编写将一个整数N转换成字符串的递归函数。例如输入345，应输出字符串“345”。N的位数不确定，可以是任意位数的整数。
-void str(int N) {
-	if (N >= 10)
-		str(N / 10);
-	cout << N % 10;
+
+struct STU
+{
+	char name[10]; int num; float TotalScore;
+};
+
+void f(struct STU* p)
+{
+	struct STU s[2] = { {"SunDan",20044,520},{"Penghua",20045,537} }, * q = s;
+	++p; ++q; *p = *q;
 }
 
-int main() {
-	int N;
-	cin >> N;
-	str(N);
+int main()
+{
+	struct STU s[3] = { {"YanSan",2313,123},{"LiGuo",2232,2424} };
+	f(s);
+	cout << s[1].name << s[1].num << s[1].TotalScore;
+
 	return 0;
 }
-
-//#include <stdio.h>
-//int main() {
-//	int a, b, c, d = 1, f1 = 1, f2 = 0;
-//	printf("please enter the number of n\n");
-//	scanf("%d",&a);
-//	for (; d <= a; d++) {
-//		b = f1 + f2;
-//		f1 = f2;
-//		f2 = b;
-//		printf("%d", b);
-//		return 0;
-//	}
-//}
