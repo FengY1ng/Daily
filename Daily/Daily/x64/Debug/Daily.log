@@ -1,2 +1,4 @@
-﻿  源1.cpp
+﻿  UDP.cpp
+C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\UDP.cpp(34,12): warning C4244: “return”: 从“unsigned long”转换到“unsigned short”，可能丢失数据
+C:\Users\ASUS\Documents\GitHub\Daily\Daily\Daily\UDP.cpp(41,97): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   Daily.vcxproj -> C:\Users\ASUS\Documents\GitHub\Daily\Daily\x64\Debug\Daily.exe

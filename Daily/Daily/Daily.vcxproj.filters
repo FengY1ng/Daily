@@ -84,8 +84,11 @@
     <ClCompile Include="2023.4.1.cpp">
       <Filter>源文件\ACM</Filter>
     </ClCompile>
-    <ClCompile Include="源1.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="TheWeatherForecast.cpp">
+      <Filter>源文件\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="UDP.cpp">
+      <Filter>源文件\Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
