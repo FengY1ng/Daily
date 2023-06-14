@@ -90,6 +90,9 @@
     <ClCompile Include="UDP.cpp">
       <Filter>源文件\Network</Filter>
     </ClCompile>
+    <ClCompile Include="P-C.cpp">
+      <Filter>源文件\OS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="sy3.asm">

@@ -139,6 +139,7 @@
     <ClCompile Include="homework1.cpp" />
     <ClCompile Include="LinkStackMain.cpp" />
     <ClCompile Include="Myusers.h" />
+    <ClCompile Include="P-C.cpp" />
     <ClCompile Include="SearchMain.cpp" />
     <ClCompile Include="SimpleLinkListMain.cpp" />
     <ClCompile Include="SimpleLinkList.cpp" />
