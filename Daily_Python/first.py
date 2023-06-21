@@ -1,10 +1,6 @@
-dict={};
-dict['one']="This is one";
-dict[2]="This is two";
-tinydict={'name':'john','code':6734,'dept':'sales'};
+names=['Bob','Tom','Jerry','Alice','Mike','John','Jack','Mary','Marry',''];
+newNames=[name.upper() for name in names if len(name)>3];
+print(newNames);
 
-print(dict['one']);
-print(dict[2]);
-print(tinydict);
-print(tinydict.keys());
-print(tinydict.values());
+multiples=[i for i in range(30) if i%3==0];
+print(multiples);
