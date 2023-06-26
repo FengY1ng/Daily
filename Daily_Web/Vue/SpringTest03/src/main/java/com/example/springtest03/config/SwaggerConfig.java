@@ -15,10 +15,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     /*
-    *配置Swagger2相关的Bean
+     *配置Swagger2相关的Bean
      */
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -27,9 +27,9 @@ public class SwaggerConfig {
     }
 
     /*
-    *此处主要是API文档页面显示信息
+     *此处主要是API文档页面显示信息
      */
-    private ApiInfo apiInfo(){
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("演示项目API")//标题
                 .description("演示项目")//描述
