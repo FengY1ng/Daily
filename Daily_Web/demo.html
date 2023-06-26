@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{name}}</p>
+        <p v-html="desc"></p>
+
+        <a :href="link">百度</a>
+        <input type="text" :placeholder="inputVaule">
+        <image :src="imgSrc" :style="{width:w}" alt=""></image>
+        <h3>count的值为:{{count}}</h3>
+        <button v-on:click="addCount">点击+1</button>
+        <button @click="count+=1">点击+1</button>
+        <div>
+            <input type="text" v-model="name">
+            <buttton @click="addNewUser">添加</buttton>
+        </div>
+
+        <ul>
+            <li v-for="(user,index) in userlist" :key="user.id">
+                <input type="checkbox" />
+                姓名:{{user.name}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        const vm={
+            data:function(){
+                return{
+                    name:'Vue.js',
+                    desc:'<a href="https://www.google.com">Google</a>',
+                    link:"http://www.baidu.com",
+                    inputVaule:'请输入内容',
+                    imgSrc:'https://www.baidu.com/img/flexible/logo/pc/result.png',
+                    w:'500px',
+                    count:0,
+                    userlist:[
+                        {id:1, name:'张三'},
+                        {id:2, name:'李四'},
+                        {id:3, name:'王五'},
+                    ],
+                    name:'',
+                    nextId:4
+
+                }
+            },
+            methods:{
+                addCount(){
+                    this.count++
+                },
+                addNewUser(){
+                    this.userlist.push({
+                        id:this.nextId++,
+                        name:this.name
+                    })
+                    this.name=''
+                }
+            }
+        }
+        const app=Vue.createApp(vm)
+        app.mount('#app')
+        </script>
+</body>
+</html>
