@@ -8,6 +8,7 @@
 <script>
 import Movie from './components/Movie.vue'
 import Hello from './components/Hello.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
