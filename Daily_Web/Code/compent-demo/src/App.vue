@@ -26,6 +26,14 @@ export default {
         ]
       }
     },
+    created:function(){
+        axios.get("http://localhost:8088/user/").then(function(response){
+        console.log(response)
+      })
+    },
+    mounted:function(){
+      console.log("APP挂载完毕")
+    } 
     
 }
 

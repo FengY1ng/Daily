@@ -1,18 +1,11 @@
-//#include <iostream>
-//#include <cstdio>
-//using namespace std;
-//
-//
-////Ê¾Àý£ºforÓï¾äÊµÏÖ¾Å¾Å³Ë·¨±íµÄÏÔÊ¾
-//int main()
-//{
-//	for (int i = 1; i <= 9; i++)
-//	{
-//		for (int j = 1; j <= i; j++)
-//		{
-//			printf_s("%d*%d=%2d ", i, j, i * j);
-//		}
-//		printf_s("\n");
-//	}
-//	return 0;
-//}
+#include <iostream>
+#include <cstdio>
+using namespace std;
+
+
+//Ê¾ï¿½ï¿½ï¿½ï¿½forï¿½ï¿½ï¿½Êµï¿½Ö¾Å¾Å³Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
+int main()
+{
+	cout<<"Hello world!";
+	return 0;
+}

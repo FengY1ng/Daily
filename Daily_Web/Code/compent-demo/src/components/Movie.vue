@@ -19,6 +19,12 @@ export default {
         fun:function(){
             alert("收藏成功");
         }
+    },
+    created:function(){
+        console.log("Hello");
+    },
+    mounted:function(){
+        console.log("挂载");
     }
 }
 </script>

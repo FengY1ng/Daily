@@ -1,0 +1,5 @@
+--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I .\Start -I .\User -I .\Libraries -I .\System -I .\Hardware
+-IF:\ChromeCore\Keil\STM32F1xx_DFP\2.2.0\Device\Include
+-IF:\ChromeCore\ARM\CMSIS\Include
+-D__UVISION_VERSION="532" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER
+-o .\objects\stm32f10x_dac.o --omf_browse .\objects\stm32f10x_dac.crf --depend .\objects\stm32f10x_dac.d --feedback ".\Objects\project.fed" "Libraries\stm32f10x_dac.c"

@@ -1,7 +1,9 @@
 package com.example.mpdemo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import jdk.jfr.DataAmount;
 
+@TableName("user")
 public class User {
     private int id;
     private String username;

@@ -1,106 +1,91 @@
-#include <iostream>
-#include <thread>
-#include <vector>
-#include <mutex>
-#include <condition_variable>
+#include <stdio.h>
+#include <stdlib.h>
 
-class Monitor {
-private:
-    std::mutex mutex;
-    std::condition_variable producer_cv;
-    std::condition_variable consumer_cv;
-    std::vector<int> buffer;
-    int bufferSize;
+int num = 0;
+int Matrix[100][100];
+void chessBoard(int tr, int tc, int dr, int dc, int size);
+int main()
+{
+    int size, r, c, row, col;
+    printf("请输入棋盘的行列号");
+    scanf("%d", &size);
+    printf("请输入特殊方格的行列号");
+    scanf("%d %d", &row, &col);
+    chessBoard(0, 0, row, col, size);
 
-public:
-    Monitor(int bufferSize) : bufferSize(bufferSize) {}
-
-    void produce(int item) {
-        std::unique_lock<std::mutex> lock(mutex);
-
-        // 检查缓冲区是否已满
-        if (buffer.size() >= bufferSize) {
-            // 等待条件变量的信号，直到缓冲区非满
-            producer_cv.wait(lock, [this] { return buffer.size() < bufferSize; });
+    for (r = 0; r < size; r++)
+    {
+        for (c = 0; c < size; c++)
+        {
+            printf("%2d ", Matrix[r][c]);
         }
-
-        // 将物品放入缓冲区
-        buffer.push_back(item);
-
-        std::cout << "生产者生产了: " << item << std::endl;
-
-        // 通知消费者线程缓冲区非空
-        consumer_cv.notify_one();
-    }
-
-    void consume() {
-        std::unique_lock<std::mutex> lock(mutex);
-
-        // 检查缓冲区是否为空
-        if (buffer.empty()) {
-            // 等待条件变量的信号，直到缓冲区非空
-            consumer_cv.wait(lock, [this] { return !buffer.empty(); });
-        }
-
-        // 从缓冲区中取出物品进行消费
-        int item = buffer.back();
-        buffer.pop_back();
-
-        std::cout << "消费者消费了: " << item << std::endl;
-
-        // 通知生产者线程缓冲区非满
-        producer_cv.notify_one();
-    }
-};
-
-void producer(Monitor& monitor, int id) {
-    for (int i = 0; i < 5; ++i) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-        monitor.produce(id * 10 + i);
-    }
-}
-
-void consumer(Monitor& monitor, int id) {
-    while (true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-
-        monitor.consume();
-    }
-}
-
-int main() {
-    int numProducers, numBuffers, numConsumers;
-
-    std::cout << "请输入生产数目: ";
-    std::cin >> numProducers;
-
-    std::cout << "请输入缓冲区数目: ";
-    std::cin >> numBuffers;
-
-    std::cout << "请输入消费者数目: ";
-    std::cin >> numConsumers;
-
-    Monitor monitor(numBuffers);
-
-    std::vector<std::thread> producerThreads;
-    std::vector<std::thread> consumerThreads;
-
-    for (int i = 0; i < numProducers; ++i) {
-        producerThreads.emplace_back(producer, std::ref(monitor), i);
-    }
-
-    for (int i = 0; i < numConsumers; ++i) {
-        consumerThreads.emplace_back(consumer, std::ref(monitor), i);
-    }
-
-    for (auto& thread : producerThreads) {
-        thread.join();
-    }
-
-    for (auto& thread : consumerThreads) {
-        thread.join();
+        printf("\n");
     }
 
     return 0;
+}
+
+void chessBoard(int tr, int tc, int dr, int dc, int size)
+{
+    if (size == 1)
+        return;
+    int s = size / 2;     //分割棋盘
+    int t = ++num;      //L型骨牌号
+
+    //覆盖左上角子棋盘
+    if (dr < tr + s && dc < tc + s)
+    {
+        //特殊方格在此棋盘中
+        chessBoard(tr, tc, dr, dc, s);
+    }
+    else            //此棋盘中无特殊方格
+    {
+        //用t号L型骨牌覆盖右下角
+        Matrix[tr + s - 1][tc + s - 1] = t;
+        //覆盖其余方格
+        chessBoard(tr, tc, tr + s - 1, tc + s - 1, s);
+    }
+
+    //覆盖右上角子棋盘
+    if (dr < tr + s && dc >= tc + s)
+    {
+        //特殊方格在此棋盘中
+        chessBoard(tr, tc + s, dr, dc, s);
+    }
+    else            //此棋盘中无特殊方格
+    {
+        //用t号L型骨牌覆盖左下角
+        Matrix[tr + s - 1][tc + s] = t;
+        //覆盖其余方格
+        chessBoard(tr, tc + s, tr + s - 1, tc + s, s);
+    }
+
+    //覆盖左下角子棋盘
+    if (dr >= tr + s && dc < tc + s)
+    {
+        //特殊方格在此棋盘中
+        chessBoard(tr + s, tc, dr, dc, s);
+    }
+    else
+    {
+        //用t号L型骨牌覆盖右上角
+        Matrix[tr + s][tc + s - 1] = t;
+        //覆盖其余方格
+        chessBoard(tr + s, tc, tr + s, tc + s - 1, s);
+    }
+
+    //覆盖右下角子棋盘
+    if (dr >= tr + s && dc >= tc + s)
+    {
+        //特殊方格在此棋盘中
+        chessBoard(tr + s, tc + s, dr, dc, s);
+    }
+    else
+    {
+        //用t号L型骨牌覆盖左上角
+        Matrix[tr + s][tc + s] = t;
+        //覆盖其余方格
+        chessBoard(tr + s, tc + s, tr + s, tc + s, s);
+    }
+
 }
